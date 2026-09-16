@@ -600,6 +600,10 @@ tablet on the sofa:
 BOT_CROSSING_HOST=0.0.0.0 npm start
 ```
 
+The terminal prints the address to open on the phone or tablet — same wifi, same page. Open it
+there and *Add to Home Screen* (Safari's share sheet, or Chrome's menu) to get an app icon that
+launches straight into the colony instead of a browser tab.
+
 **Understand what that hands out before you do it.** The two checks above stop a *web page* from
 driving the server; they are not access control, and they do nothing about another device asking
 directly. Anyone who can reach the port gets every thread title, every opening prompt, every

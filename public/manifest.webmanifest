@@ -1,0 +1,12 @@
+{
+  "name": "Bot Crossing",
+  "short_name": "Bot Crossing",
+  "description": "Every coding-agent thread on your machine, as a colony.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0e14",
+  "theme_color": "#0b0e14",
+  "icons": [
+    { "src": "/assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

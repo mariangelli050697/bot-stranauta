@@ -1,6 +1,7 @@
 import http from 'node:http'
 import fsp from 'node:fs/promises'
 import path from 'node:path'
+import { networkInterfaces } from 'node:os'
 import { fileURLToPath } from 'node:url'
 import { apiMiddleware } from './api.mjs'
 
@@ -58,6 +59,21 @@ const server = http.createServer(async (req, res) => {
   }
 })
 
+/** Every non-internal IPv4 address, so a phone on the same network has something to type. */
+function lanAddresses() {
+  return Object.values(networkInterfaces())
+    .flat()
+    .filter((net) => net && net.family === 'IPv4' && !net.internal)
+    .map((net) => net.address)
+}
+
 server.listen(PORT, HOST, () => {
   console.log(`Bot Crossing → http://${HOST}:${PORT}`)
+  if (HOST === '0.0.0.0' || HOST === '::') {
+    const addresses = lanAddresses()
+    if (addresses.length) {
+      console.log('  From your phone, on the same network:')
+      for (const address of addresses) console.log(`  → http://${address}:${PORT}`)
+    }
+  }
 })
