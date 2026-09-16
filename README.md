@@ -600,7 +600,7 @@ tablet on the sofa:
 BOT_CROSSING_HOST=0.0.0.0 npm start
 ```
 
-The terminal prints the address to open on the phone or tablet — same wifi, same page. Open it
+`npm run phone` does the same without the variable, so it works from any shell, including PowerShell. The terminal prints the address to open on the phone or tablet — same wifi, same page. Open it
 there and *Add to Home Screen* (Safari's share sheet, or Chrome's menu) to get an app icon that
 launches straight into the colony instead of a browser tab.
 
